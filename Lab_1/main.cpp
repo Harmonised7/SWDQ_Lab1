@@ -56,7 +56,7 @@ int main()
     cir.setWidth( 10 );
     cir.setHeight( 10 );
 
-    //Print the area of the object.
+    //Print the area of the objects.
     cout << "Total Triangle area: " << tri.getArea() << endl;
     cout << "Total Circle area: " << cir.getArea() << endl;
 

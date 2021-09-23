@@ -27,20 +27,27 @@ class Shape
 class Triangle : public Shape
 {
     public:
-    double getArea()
-    {
-        return ( width * height ) /2;
-    }
+        double getArea()
+        {
+            return ( width * height ) /2;
+        }
 };
 
 class Circle : public Shape
 {
     public:
-    double getArea()
-    {
-        double r = width/2;
-        return PI * r * r;
-    }
+        double getArea()
+        {
+            return PI * radius * radius;
+        }
+
+        void setRadius( double r )
+        {
+            radius = r;
+        }
+
+    protected:
+        double radius;
 };
 
 int main()
@@ -52,8 +59,7 @@ int main()
 
     Circle cir;
 
-    cir.setWidth( 10 );
-    cir.setHeight( 10 );
+    cir.setRadius( 5 );
 
     //Print the area of the objects.
     cout << "Total Triangle area: " << tri.getArea() << endl;

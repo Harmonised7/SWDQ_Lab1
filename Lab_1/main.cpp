@@ -1,4 +1,7 @@
 #include <iostream>
+#include <iomanip>
+
+const double PI = 3.141592653589793238;
 
 using namespace std;
 
@@ -7,27 +10,37 @@ using namespace std;
 class Shape
 {
     public:
-        virtual int getArea() = 0;
-        void setWidth( int w )
+        virtual double getArea() = 0;
+        void setWidth( double w )
         {
             width = w;
         }
 
-        void setHeight( int h )
+        void setHeight( double h )
         {
             height = h;
         }
 
     protected:
-        int width, height;
+        double width, height;
 };
 
 class Triangle : public Shape
 {
     public:
-    int getArea()
+    double getArea()
     {
         return ( width * height ) /2;
+    }
+};
+
+class Circle : public Shape
+{
+    public:
+    double getArea()
+    {
+        double r = width/2;
+        return PI * r * r;
     }
 };
 
@@ -38,9 +51,14 @@ int main()
     tri.setWidth( 5 );
     tri.setHeight( 7 );
 
-    //Print the area of the object.
+    Circle cir;
 
+    cir.setWidth( 10 );
+    cir.setHeight( 10 );
+
+    //Print the area of the object.
     cout << "Total Triangle area: " << tri.getArea() << endl;
+    cout << "Total Circle area: " << cir.getArea() << endl;
 
     return 0;
 }
